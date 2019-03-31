@@ -7,11 +7,11 @@ class Student():
     age = 0
 
     # 实例方法
-    def __init__(self,name,age):  # self 代表的是实例
+    def __init__(self,name,age):  # self，必须要写 代表的是实例，
         self.name = name
         self.age = age
-        # print(age)
-        # print(name)
+        # print(age)  #读取的是形参的age
+        # print(name) #读取的是形参的name
         print(self.name)
         # print('student')
 

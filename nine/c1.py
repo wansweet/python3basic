@@ -12,14 +12,16 @@ class Student():
     sum = 0
     name = 'mf'  # 类变量
     age = 0
-# '类变量' '实例变量'
+    # '类变量' 和 '实例变量'
+
     def __init__(self,name,age):  # 实例方法 对象
-        # 构造函数
+        # 构造函数，__init__
         # 初始化对象的属性
         self.name = name  # 实例变量
         self.age = age
         # print('student')
 
+    # 普通函数
     # 行为 与 特征
     def do_homework(self):
         print('homework')
@@ -50,8 +52,11 @@ class Student():
 # student.print_file()  # 调用类的方法
 # 类实例化和调用不要放在定义类的文件里
 
+# 创建对象时必须传入构造函数的参数，否则报错
 student1 = Student('哈哈',18)
-print(student1.name)
+print(student1.name) # 是实例的变量
+print(Student.name)  # 是类的变量
+print(student1.__dict__) # 显示所有的实例变量
 
 # a = student1.__init__()
 # print(a)
@@ -59,6 +64,8 @@ print(student1.name)
 # student2 = Student()
 # student3 = Student()
 #
+
+# 查看对象在内存中的地址
 # print(id(student1))
 # print(id(student2))
 # print(id(student3))
