@@ -6,7 +6,7 @@
 # 类、对象
 # 类的名字首字母需要大写，不要像变量一样用下划线
 # 实例化
-# 类最基本的作用：封装
+# 类最基本的作用：封装代码
 # 类和对象
 class Student():
     sum = 0
@@ -19,7 +19,20 @@ class Student():
         # 初始化对象的属性
         self.name = name  # 实例变量
         self.age = age
-        # print('student')
+
+        # 目前score是公开的，即public
+        # self.score = 0 #代表实例对象中有这个变量
+
+        # 在变量或方法名前面加__(双下划线)，就变成私有的
+        self.__score = 0
+
+        self.__class__.sum += 100
+
+    def set_score(self, score):
+        if score < 0 :
+            return '分数不能为负数'
+        self.__score = score
+        print(self.name + '同学本次考试分数为：'+ str(self.score))
 
     # 普通函数
     # 行为 与 特征
@@ -33,6 +46,10 @@ class Student():
         cls.sum += 1
         print(cls.sum)
 
+    @staticmethod
+    def add():
+        print(Student.sum)
+        print('This is a static method')
 
 # 类就是一个印刷机、模版，类实例化可以产生很多个对象
 # 类里面可以传入多个特征
@@ -60,6 +77,20 @@ student1 = Student('哈哈', 18)
 print(student1.name)  # 是实例的变量
 print(Student.name)  # 是类的变量
 print(student1.__dict__)  # 显示所有的实例变量
+print("student1.sum: ", student1.sum)
+
+# 可以直接给score赋值，这样赋值不安全
+student1.score = -1
+print(student1.score)
+
+
+
+
+# 使用提供的方法来给score赋值。可以限制赋值的内容
+student1.set_score(-1)
+
+
+#
 
 # a = student1.__init__()
 # print(a)
