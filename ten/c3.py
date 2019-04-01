@@ -4,6 +4,7 @@ import re
 
 a = 'C0C++7Java8C#9Python6Javascript'
 
+# \D : 匹配任意非数字
 r = re.findall('\D',a)  # \d表示任意一个数字字符
 print(r)
 

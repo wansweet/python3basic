@@ -10,12 +10,12 @@
 # 类和对象
 class Student():
     sum = 0
-    name = 'mf'  # 类变量
+    name = 'mf'  # 类变量，这个类的所有实例之间共享，可以使用Student.name来分享
     age = 0
-    # '类变量' 和 '实例变量'
 
-    def __init__(self,name,age):  # 实例方法 对象
-        # 构造函数，__init__
+    # '类变量' 和 '实例变量'
+    def __init__(self, name, age):  # 实例方法 对象
+        # __init__()是特殊方法，被称为类的构造函数或初始化方法，当创建了这个类的实例时就会调用该方法
         # 初始化对象的属性
         self.name = name  # 实例变量
         self.age = age
@@ -27,9 +27,12 @@ class Student():
         print('homework')
 
     @classmethod  # 装饰器 类方法 类本身
+    # 修饰的函数不需要实例化，但是必须传第一个参数，表示自身类的 cls 参数，
+    # 可以来调用类的属性，类的方法，实例化对象等。
     def plus_sum(cls):
         cls.sum += 1
         print(cls.sum)
+
 
 # 类就是一个印刷机、模版，类实例化可以产生很多个对象
 # 类里面可以传入多个特征
@@ -39,7 +42,7 @@ class Student():
 #         print('name: ' + self.name)
 #         print('age: ' + str(self.age))
 
-    # print_file()  类不负责执行代码，只负责定义
+# print_file()  类不负责执行代码，只负责定义
 
 # class StudentHomework():
 #     homework_name = ''
@@ -53,10 +56,10 @@ class Student():
 # 类实例化和调用不要放在定义类的文件里
 
 # 创建对象时必须传入构造函数的参数，否则报错
-student1 = Student('哈哈',18)
-print(student1.name) # 是实例的变量
+student1 = Student('哈哈', 18)
+print(student1.name)  # 是实例的变量
 print(Student.name)  # 是类的变量
-print(student1.__dict__) # 显示所有的实例变量
+print(student1.__dict__)  # 显示所有的实例变量
 
 # a = student1.__init__()
 # print(a)
@@ -69,3 +72,17 @@ print(student1.__dict__) # 显示所有的实例变量
 # print(id(student1))
 # print(id(student2))
 # print(id(student3))
+
+
+'''
+__dict__ : 类的属性（包含一个字典，由类的数据属性组成）
+__doc__ :类的文档字符串
+__name__: 类名
+__module__: 类定义所在的模块（类的全名是'__main__.className'，如果类位于一个导入模块mymod中，那么className.__module__ 等于 mymod）
+__bases__ : 类的所有父类构成元素（包含了一个由所有父类组成的元组）
+'''
+# print("Student.__doc__:", Student.__doc__)
+# print("Student.__name__:", Student.__name__)
+# print("Student.__module__:", Student.__module__)
+# print("Student.__bases__:", Student.__bases__)
+# print("Student.__dict__:", Student.__dict__)

@@ -14,8 +14,8 @@ class Student(Human):
         print('english homework')
 
 student1 = Student('人民小学','haha',18)
-print(student1.sum)
-print(Student.sum)
-print(student1.name)
-print(student1.age)
+print("student1.sum: ", student1.sum)
+print("Student.sum: ", Student.sum)
+print("student1.name: ", student1.name)
+print("student1.age: ", student1.age)
 student1.get_name()
