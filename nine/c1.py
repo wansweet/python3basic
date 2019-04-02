@@ -39,7 +39,7 @@ class Student():
     def do_homework(self):
         print('homework')
 
-    @classmethod  # 装饰器 类方法 类本身
+    @classmethod  # 函数装饰器 类方法 类本身
     # 修饰的函数不需要实例化，但是必须传第一个参数，表示自身类的 cls 参数，
     # 可以来调用类的属性，类的方法，实例化对象等。
     def plus_sum(cls):
